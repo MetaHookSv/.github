@@ -4,7 +4,6 @@
 
 [![Platform](https://img.shields.io/badge/platform-Windows%20x86-0078D6?logo=windows&logoColor=white)](#)
 [![Latest release](https://img.shields.io/github/v/release/MetaHookSv/MetaHookSv?label=latest%20release)](https://github.com/MetaHookSv/MetaHookSv/releases)
-[![License](https://img.shields.io/github/license/MetaHookSv/MetaHookSv)](https://github.com/MetaHookSv/MetaHookSv/blob/main/LICENSE)
 [![Stars](https://img.shields.io/github/stars/MetaHookSv/MetaHookSv?style=flat&logo=github)](https://github.com/MetaHookSv/MetaHookSv/stargazers)
 
 MetaHookSv is a port of [MetaHook](https://github.com/nagist/metahook) to **SvEngine**, the
@@ -14,34 +13,6 @@ without modifying the game's own files.
 
 Most plugins still work on vanilla GoldSrc — check each plugin's own documentation for
 engine compatibility.
-
-## Engine compatibility
-
-Applies to the MetaHook loader only.
-
-| Engine | |
-| --- | --- |
-| GoldSrc_blob (3248 ~ 4554) | √ |
-| GoldSrc_legacy (< 6153) | √ |
-| GoldSrc_new (8684 ~) | √ |
-| SvEngine (8832 ~) | √ |
-| GoldSrc_HL25 (>= 9884) | √ |
-
-## Get started
-
-**Install.** Download `MetaHookSv-windows-x86.7z` from the
-[latest release](https://github.com/MetaHookSv/MetaHookSv/releases), keep
-`MetahookInstaller.exe` next to `install/output/`, run it, pick the game and click
-**Install**. `MetahookInstallerCLI.exe` from the same archive performs the same steps for
-scripted installs.
-
-**Build from source.** Clone [MetaHookSv](https://github.com/MetaHookSv/MetaHookSv)
-recursively and configure it with CMake — Visual Studio 2022 and a Win32/x86 generator are
-required. The repository README documents the full build, install and debugging flow.
-
-**Enable plugins.** List installed plugins in
-`<game>/<mod>/metahook/configs/plugins.lst`; templates for Sven Co-op and vanilla GoldSrc
-ship with the installer.
 
 ## Core
 
@@ -99,30 +70,3 @@ Mirrors kept so the build stays reproducible:
 - **[BSPLocalizationTools](https://github.com/MetaHookSv/BSPLocalizationTools)** — toolsets for GoldSrc BSP localization (C#).
 - **[SteamAppsLocation](https://github.com/MetaHookSv/SteamAppsLocation)** — a Windows x86 CLI that locates an installed Steam game by AppId.
 - **[MetahookInstaller](https://github.com/MetaHookSv/MetahookInstaller)** — GUI installer and CLI (see [Core](#core)).
-
-## Build & CI
-
-The [MetaHookSv](https://github.com/MetaHookSv/MetaHookSv) repository is the single CMake
-entry point: it adds every enabled component to one tree and injects the shared
-`thirdparty/` sources, so one configure produces one solution. Three GitHub Actions
-workflows drive it — `windows` (build, test, package), `bsp-localization-tools` and
-`release`. Pushing a `v*` tag publishes `MetaHookSv-windows-x86.7z` together with its
-debug symbols and `BSPLocalizationTools-windows-x64.7z`, with bilingual AI-generated
-release notes.
-
-## License
-
-MIT — see [LICENSE](https://github.com/MetaHookSv/MetaHookSv/blob/main/LICENSE).
-
----
-
-## 中文简介
-
-MetaHookSv 是面向 GoldSrc / Sven Co-op 的客户端插件框架与插件、工具集合，由 MetaHook
-加载器、MetahookInstaller 安装器、一组插件、共享 PluginLibs 和若干独立工具组成。加载器在
-游戏内启动插件宿主并暴露稳定的 C++ 公共 API，插件无需改动游戏原有文件即可挂接引擎。
-
-从[最新 release](https://github.com/MetaHookSv/MetaHookSv/releases) 下载
-`MetaHookSv-windows-x86.7z`，用安装器一键安装；插件按仓库独立维护，在
-`<游戏>/<mod>/metahook/configs/plugins.lst` 中启停。完整中文说明见
-[README.zh-CN.md](https://github.com/MetaHookSv/MetaHookSv/blob/main/README.zh-CN.md)。
